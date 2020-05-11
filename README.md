@@ -26,7 +26,7 @@ _**Rippertoire** is the web app that every guitarist needs to make sure they've 
 
 ### Core Features
 
-_The most challening part about memorizing hours worth of music is the thousands of words that go along with it. On Rippertoire, musicians can maintain lists 
+The most challening part about memorizing hours worth of music is the thousands of words that go along with it. On Rippertoire, musicians can maintain lists 
 
   - _Future - for songs that you'd like to learn,_
   - _Current - for works in progress,_
@@ -41,7 +41,7 @@ Future future features please refer to the [Post-MVP](#Post-MVP) section .
 
 - _Users should be able to tag each song as:_
   - _an 'original' or a 'cover'_
-  - _Future, Current, or Past
+  - Future, Current, or Past
 
 ### Team
 

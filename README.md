@@ -28,9 +28,9 @@ _**Rippertoire** is the web app that every guitarist needs to make sure they've 
 
 The most challening part about memorizing hours worth of music is the thousands of words that go along with it. On Rippertoire, musicians can maintain lists 
 
-  - Future - for songs that you'd like to learn,
-  - Current - for works in progress,
   - Past - for songs that are an active part of your repertoire, and need no brushing up on.
+  - Present - for works in progress,
+  - Future - for songs that you'd like to learn,
 
 Musicians can store the lyrics to the songs that they're learning OR writing in any of the given lists.
 For each song, a user should be able to input the Artist and title.
@@ -41,7 +41,7 @@ Future future features please refer to the [Post-MVP](#Post-MVP) section .
 
 - _Users should be able to tag each song as:_
   - _an 'original' or a 'cover'_
-  - Future, Current, or Past
+  - Past, Present, or Future
 
 ### Team
 
@@ -124,9 +124,16 @@ src
       |__ fonts
       |__ graphics
       |__ images
-      |__ mockups
 |__ components/
+      |__ Edit.jsx
       |__ Header.jsx
+      |__ HeroArtistList.jsx
+      |__ Login.jsx
+      |__ Main.jsx
+      |__ Register.jsx
+      |__ Section.jsx
+      |__ SectionSongList.jsx
+      |__ Song.jsx
 |__ services/
 
 ```
@@ -135,15 +142,19 @@ src
 
 > Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
 
-|  Component   |    Type    | state | props | Description                                                      |
-| :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
-|    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+|     Component     |    Type    | state | props | Description                                                      |
+| :---------------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
+| Edit              | functional |   n   |   p   | _The header will contain the navigation and logo._               |
+| Header            | functional |   n   |   p   | _The navigation will provide a link to each of the pages._       |
+| HeroArtistList    |   class    |   n   |   n   | _The gallery will render the posts using cards in flexbox._      |
+| Login             | functional |   n   |   y   | _The cards will render the post info via props._                 |
+| Main              | functional |   n   |   y   | _The footer will show info about me and a link to my portfolio._ |
+| Register          | functional |   y   |   n   | _The footer will show info about me and a link to my portfolio._ |
+| Section           | functional |   n   |   y   | _The footer will show info about me and a link to my portfolio._ |
+| SectionSongList   | functional |   n   |   y   | _The footer will show info about me and a link to my portfolio._ |
+| Song              | functional |   y   |   y   | _The footer will show info about me and a link to my portfolio._ |
 
-#### Component Estimates
+<!-- #### Component Estimates
 
 > Use this section to estimate the time necessary to build out each of the components you've described above.
 
@@ -155,7 +166,7 @@ src
 
 > _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evalute possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
-<br>
+<br> -->
 
 ### Server (Back End)
 

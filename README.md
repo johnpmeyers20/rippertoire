@@ -28,9 +28,9 @@ _**Rippertoire** is the web app that every guitarist needs to make sure they've 
 
 The most challening part about memorizing hours worth of music is the thousands of words that go along with it. On Rippertoire, musicians can maintain lists 
 
-  - _Future - for songs that you'd like to learn,_
-  - _Current - for works in progress,_
-  - _Past - for songs that are an active part of your repertoire, and need no brushing up on._
+  - Future - for songs that you'd like to learn,
+  - Current - for works in progress,
+  - Past - for songs that are an active part of your repertoire, and need no brushing up on.
 
 Musicians can store the lyrics to the songs that they're learning OR writing in any of the given lists.
 For each song, a user should be able to input the Artist and title.
@@ -45,19 +45,65 @@ Future future features please refer to the [Post-MVP](#Post-MVP) section .
 
 ### Team
 
-Created, designed, and developed by [James Madison](https://github.com/mishakessler) for the General Assembly Software Engineering Immersive (November '19 Cohort) Unit 4 Project.
+Created, designed, and developed by [JP Meyers](https://github.com/johnpmeyers20) for the General Assembly Software Engineering Immersive (February '20 cohort) Unit 4 Project.
 
 ### Permissions
 
-Digital assets used with full licensing and permission from [Death to Stock Photo](), [Freepik](), and [Unsplash](). Custom digital design and branding by John Lansing. Digital assets stored locally and on [Imgur]().
+Digital assets used with full licensing and permission from [Death to Stock Photo](), [Freepik](), and [Unsplash](). Digital assets stored  on [Imgur](). All other material that surfaces throughout the course of the project will be cited accordingly.
 
 <br>
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
+### Server (Back End) <!-- omit in toc -->
 
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+- Have a **RESTful JSON API** built on a **Ruby on Rails** server which contains at least 1 user, and 2 other tables. 
+  - It must feature 2 pairs of associated tables (1:m _or_ m:m). 
+  - Models must be defined for database interaction. 
+- The site must feature full-CRUD (`index`, `show`, `create`, `update`, `delete`) between the 2 non-user tables AND partial-CRUD (`create`, at least) for the user table.
+- Authentication is necessary, utilizing a **JWT**.
+
+### Client (Front End) <!-- omit in toc -->
+
+- Have a working, interactive **React** app, built using `npx create-react-app`.
+  - Have at least 8 separate, rendered components in an organized and understandable React file structure.
+  - Utilize functional and class React components appropriately.
+  - Utilize state and props in your components efficiently.
+  - Use _only_ React for DOM Manipulation.
+- Consume data from your **Ruby on Rails API**, and render that data in your components.
+- Utilize **React Router**, for client-side routing.
+- Utilize Authentication, permitting the user to:
+  - Register, login, and send authenticated requests.
+  - Perform `index` or `show` actions, **whether or not they are logged in**.^
+  - Perform `create`, `update`, and `delete` actions **when logged in**.
+
+_^ Unless it makes sense for that information to be restricted to particular users._
+
+### Styling <!-- omit in toc -->
+
+- Styled with CSS using grid and flexbox.
+- Implement 2 media queries for responsive design on 3 screen sizes (including desktop).
+
+### Linting <!-- omit in toc -->
+
+- Indent properly.
+- Utilize high-quality, semantic variable names.
+- Follow `camelCase`, `snake_case`, and `kebab-case` convention.
+- Remove unnecessary boilerplate React files and code.
+- Remove all `console.log()`s and commented out code (functional notes and comments are okay).
+
+### Deployment <!-- omit in toc -->
+
+- Deploy the fully functional front-end via Netlify.
+- Deploy the back-end via Heroku.
+
+### Procedural <!-- omit in toc -->
+
+- Initialize a **git repo on Github**, with a link to your hosted project.
+- Have **frequent commits**, making a _robust_ commit history at least every day. (75 commits minimum)
+- Use effective and safe **branching and merging** processes.
+
+<br>
 
 ### Client (Front End)
 
@@ -65,29 +111,7 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 > Use the Wireframes section to display desktop, tablet and mobile views.
 
-![Dummy Link](url)
-
-- Desktop Landing
-
-![Dummy Link](url)
-
-- Desktop Hero
-
-![Dummy Link](url)
-
-- Resource Index
-
-![Dummy Link](url)
-
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
+![Dummy Link](https://i.imgur.com/UQPRqK0.png)
 
 #### Component Hierarchy
 
@@ -184,6 +208,7 @@ database_db
   - _Users should be able to link to YouTube videos for reference_
   - _Users should be able to track current bpm speeds of play for leads_
   - _Users should be able to input goals for playing_
+  - _Users should be able to select from a list of instruments to indicate what they are learning the song on_
 
 
 ***

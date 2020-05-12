@@ -205,6 +205,8 @@ database_db
 | React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
 |     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
 |  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+| Bcrypt           | _Used for authentication._                 |
+| JWT              | _Used for authentication._                 |
 
 <br> 
 

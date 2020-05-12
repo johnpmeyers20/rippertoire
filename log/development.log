@@ -1,0 +1,2 @@
+  [1m[35m (270.7ms)[0m  [1m[35mCREATE DATABASE "rippertoire_development" ENCODING = 'unicode'[0m
+  [1m[35m (114.8ms)[0m  [1m[35mCREATE DATABASE "rippertoire_test" ENCODING = 'unicode'[0m

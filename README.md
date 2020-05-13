@@ -173,7 +173,7 @@ src
 #### ERD Model
 
 > Use this section to display an image of a computer generated ERD model.
-![Dummy Link](https://i.imgur.com/UItGvxI.png)
+![Dummy Link](https://i.imgur.com/V0xWjdI.png)
 
 #### Data Heirarchy
 

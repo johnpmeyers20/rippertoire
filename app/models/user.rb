@@ -6,6 +6,9 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }
 
+  has_many :songs, dependent: :destroy
+  has_many :artists, dependent: :destroy
+
   def return_data
     {
       id: id,

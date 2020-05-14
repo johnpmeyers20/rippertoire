@@ -1678,3 +1678,197 @@ Migrating to CreateAlbums (20200514153728)
   [1m[36mActiveRecord::InternalMetadata Load (6.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3388653262613526390)[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users/1/songs" for ::1 at 2020-05-14 11:52:28 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+[31mUnpermitted parameters: :artist, :title, :rep_cat, :lyrics[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Exists? (26.1ms)[0m  [1m[34mSELECT 1 AS one FROM "songs" WHERE "songs"."title" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 57ms (Views: 0.9ms | ActiveRecord: 28.0ms | Allocations: 11242)
+
+
+Started POST "/users/1/songs" for ::1 at 2020-05-14 12:04:26 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 4938)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Artist(#70341546393720) expected, got "Rage Against the Machine" which is an instance of String(#70341527715320)):
+  
+app/controllers/songs_controller.rb:18:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 12:14:26 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "songs" WHERE "songs"."title" = $1 LIMIT $2[0m  [["title", "Guerilla Radio"], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 17ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 8832)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3388653262613526390)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJoinTableSongsArtists (20200514162321)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "artists_songs" ("song_id" bigint NOT NULL, "artist_id" bigint NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200514162321"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3388653262613526390)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users/1/songs" for ::1 at 2020-05-14 12:31:26 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (5.7ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Rage Against the Machine"], ["title", "Guerilla Radio"], ["rep_cat", "past"], ["lyrics", "Turn that shit up!"]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 6.0ms | Allocations: 6371)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (1, null, Rage Against the Machine, Guerilla Radio, past, Turn that shit up!).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 12:33:04 -0400
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    {
+        "artist": "Rage Against the Machine",
+        "title": "Guerilla Radio",
+        "rep_cat": "past",
+        "lyrics": "Turn that shit up!"
+    }
+}
+
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    {
+        "artist": "Rage Against the Machine",
+        "title": "Guerilla Radio",
+        "rep_cat": "past",
+        "lyrics": "Turn that shit up!"
+    }
+}
+'):
+  
+actionpack (6.0.3) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.2) lib/rack/request.rb:69:in `fetch'
+rack (2.2.2) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    {
+        "artist": "Rage Against the Machine",
+        "title": "Guerilla Radio",
+        "rep_cat": "past",
+        "lyrics": "Turn that shit up!"
+    }
+}
+
+Started POST "/users/1/songs" for ::1 at 2020-05-14 12:33:36 -0400
+Processing by SongsController#create as */*
+  Parameters: {"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!", "user_id"=>"1", "song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (2.4ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Rage Against the Machine"], ["title", "Guerilla Radio"], ["rep_cat", "past"], ["lyrics", "Turn that shit up!"]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.8ms | Allocations: 2530)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (2, null, Rage Against the Machine, Guerilla Radio, past, Turn that shit up!).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 12:34:18 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (1.5ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Rage Against the Machine"], ["title", "Guerilla Radio"], ["rep_cat", "past"], ["lyrics", "Turn that shit up!"]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 4.2ms | Allocations: 2526)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (3, null, Rage Against the Machine, Guerilla Radio, past, Turn that shit up!).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 12:36:19 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"past", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+Completed 422 Unprocessable Entity in 23ms (Views: 0.4ms | ActiveRecord: 7.0ms | Allocations: 6515)
+
+

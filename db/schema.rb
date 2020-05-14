@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_202045) do
+ActiveRecord::Schema.define(version: 2020_05_14_202351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_05_14_202045) do
     t.string "title"
     t.string "rep_cat"
     t.string "lyrics"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_songs_on_category_id"
     t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
@@ -59,5 +61,6 @@ ActiveRecord::Schema.define(version: 2020_05_14_202045) do
 
   add_foreign_key "artists", "songs"
   add_foreign_key "artists", "users"
+  add_foreign_key "songs", "categories"
   add_foreign_key "songs", "users"
 end

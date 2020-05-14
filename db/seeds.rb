@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Song.create(user_id: 1, artist: 'RATM', title: 'Guerilla Radio', rep_cat: 'present', lyrics: 'Turn that shit up!')

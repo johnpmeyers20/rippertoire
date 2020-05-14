@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :update, :destroy]
-
+  before_action :set_user, only: [:create]
   # GET /songs
   def index
     @songs = Song.all
@@ -10,7 +10,7 @@ class SongsController < ApplicationController
 
   # GET /songs/1
   def show
-    render json: @song
+    render json: @song, include: :artist
   end
 
   # POST /songs

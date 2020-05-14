@@ -1872,3 +1872,368 @@ Processing by SongsController#create as */*
 Completed 422 Unprocessable Entity in 23ms (Views: 0.4ms | ActiveRecord: 7.0ms | Allocations: 6515)
 
 
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (7.3ms)[0m  [1m[32mINSERT INTO "songs" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "guerilla radio"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Started POST "/users/1/songs" for ::1 at 2020-05-14 15:11:52 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"future", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (2.0ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Rage Against the Machine"], ["title", "Guerilla Radio"], ["rep_cat", "future"], ["lyrics", "Turn that shit up!"]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.3ms | Allocations: 6480)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (5, null, Rage Against the Machine, Guerilla Radio, future, Turn that shit up!).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (1.6ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "RATM"], ["title", "Guerilla Radio"], ["rep_cat", "present"], ["lyrics", "Turn that shit up!"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (8.3ms)[0m  [1m[32mINSERT INTO "songs" ("user_id", "artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["artist", "RATM"], ["title", "Guerilla Radio"], ["rep_cat", "present"], ["lyrics", "Turn that shit up!"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.8ms)[0m  [1m[32mINSERT INTO "songs" ("user_id", "artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["artist", "Bush"], ["title", "Glycerine"], ["rep_cat", "past"], ["lyrics", "It must be your skin..."]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/songs" for ::1 at 2020-05-14 15:36:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/songs"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-05-14 15:36:29 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 7.5ms | ActiveRecord: 5.0ms | Allocations: 7774)
+
+
+Started GET "/users/1" for ::1 at 2020-05-14 15:36:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:48:in `set_user'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 949)
+
+
+Started GET "/users/1/songs" for ::1 at 2020-05-14 15:36:41 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 1093)
+
+
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArtist Create (7.4ms)[0m  [1m[32mINSERT INTO "artists" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Bush"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArtist Create (10.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "song_id", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bush"], ["song_id", 8], ["user_id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/1/artists" for ::1 at 2020-05-14 15:38:50 -0400
+Processing by ArtistsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/artists_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 4.7ms | ActiveRecord: 3.5ms | Allocations: 5291)
+
+
+Started GET "/users/1/songs" for ::1 at 2020-05-14 15:54:34 -0400
+Processing by SongsController#index as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"future", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 1.3ms | Allocations: 4930)
+
+
+Started GET "/users/1/songs/7" for ::1 at 2020-05-14 15:54:53 -0400
+Processing by SongsController#show as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"future", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1", "id"=>"7"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:44:in `set_song'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.2ms | Allocations: 1818)
+
+
+  
+NoMethodError (undefined method `serializable_hash' for "RATM":String):
+  
+app/controllers/songs_controller.rb:13:in `show'
+Started GET "/users/1/songs" for ::1 at 2020-05-14 15:54:58 -0400
+Processing by SongsController#index as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"future", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 1.3ms | Allocations: 1072)
+
+
+Started POST "/users/1/songs" for ::1 at 2020-05-14 15:55:36 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"artist"=>"Rage Against the Machine", "title"=>"Guerilla Radio", "rep_cat"=>"future", "lyrics"=>"Turn that shit up!"}, "user_id"=>"1"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (2.6ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Rage Against the Machine"], ["title", "Guerilla Radio"], ["rep_cat", "future"], ["lyrics", "Turn that shit up!"]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.8ms | Allocations: 2694)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (9, null, Rage Against the Machine, Guerilla Radio, future, Turn that shit up!).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 15:56:38 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"user_id"=>1, "artist"=>"Dispatch", "title"=>"The General", "rep_cat"=>"future", "lyrics"=>"There was a decorated general with a heart of gold..."}, "user_id"=>"1"}
+[31mUnpermitted parameter: :user_id[0m
+  [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (1.1ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Dispatch"], ["title", "The General"], ["rep_cat", "future"], ["lyrics", "There was a decorated general with a heart of gold..."]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 5.6ms | Allocations: 2605)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (10, null, Dispatch, The General, future, There was a decorated general with a heart of gold...).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 15:56:57 -0400
+Processing by SongsController#create as */*
+  Parameters: {"user_id"=>"1", "artist"=>"Dispatch", "title"=>"The General", "rep_cat"=>"future", "lyrics"=>"There was a decorated general with a heart of gold...", "song"=>{"user_id"=>"1", "artist"=>"Dispatch", "title"=>"The General", "rep_cat"=>"future", "lyrics"=>"There was a decorated general with a heart of gold..."}}
+[31mUnpermitted parameter: :user_id[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (5.8ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Dispatch"], ["title", "The General"], ["rep_cat", "future"], ["lyrics", "There was a decorated general with a heart of gold..."]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 6.1ms | Allocations: 2606)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (11, null, Dispatch, The General, future, There was a decorated general with a heart of gold...).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 15:57:53 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"user_id"=>1, "artist"=>"Dispatch", "title"=>"The General", "rep_cat"=>"future", "lyrics"=>"There was a decorated general with a heart of gold..."}, "user_id"=>"1"}
+[31mUnpermitted parameter: :user_id[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[36mSong Create (2.8ms)[0m  [1m[32mINSERT INTO "songs" ("artist", "title", "rep_cat", "lyrics") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artist", "Dispatch"], ["title", "The General"], ["rep_cat", "future"], ["lyrics", "There was a decorated general with a heart of gold..."]]
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/songs_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 3.1ms | Allocations: 2605)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+DETAIL:  Failing row contains (12, null, Dispatch, The General, future, There was a decorated general with a heart of gold...).
+):
+  
+app/controllers/songs_controller.rb:20:in `create'
+Started POST "/users/1/songs" for ::1 at 2020-05-14 15:58:23 -0400
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"song": {
+"user_id": user.id,
+"artist": "Dispatch",
+"title": "The General",
+"rep_cat": "future",
+"lyrics": "There was a decorated general with a heart of gold..."
+}
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+	"song": {
+"user_id": user.id,
+"artist": "Dispatch",
+"title": "The General",
+"rep_cat": "future",
+"lyrics": "There was a decorated general with a heart of gold..."
+}
+}'):
+  
+actionpack (6.0.3) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.2) lib/rack/request.rb:69:in `fetch'
+rack (2.2.2) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"song": {
+"user_id": user.id,
+"artist": "Dispatch",
+"title": "The General",
+"rep_cat": "future",
+"lyrics": "There was a decorated general with a heart of gold..."
+}
+}
+Started POST "/users/1/songs" for ::1 at 2020-05-14 16:04:49 -0400
+Processing by SongsController#create as */*
+  Parameters: {"song"=>{"user_id"=>2, "artist"=>"Dispatch", "title"=>"The General", "rep_cat"=>"future", "lyrics"=>"There was a decorated general with a heart of gold..."}, "user_id"=>"1"}
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.0ms | Allocations: 35839)
+
+
+  
+NoMethodError (undefined method `set_user' for #<SongsController:0x00007ff353c96d98>
+Did you mean?  set_request!):
+  
+activesupport (6.0.3) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3388653262613526390)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20200514202045)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.9ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200514202045"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3388653262613526390)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

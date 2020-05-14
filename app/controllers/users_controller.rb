@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authorize_request, except: [:index, :create, :show]
+  # before_action :authorize_request, except: [:index, :create, :show]
   
   # GET /users
   def index
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       #the username: @user.username can be left out
       @token = encode({user_id: @user.id});
       # user: @user.return_data => Try this if the other one works fine.
-      render json: {user: @user, token: @token}, status: :created, location: @user
+      render json: {user: @user.return_data, token: @token}, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end

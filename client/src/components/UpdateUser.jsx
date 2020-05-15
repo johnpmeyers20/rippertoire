@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { getOneFood } from '../services/api-helper';
+import { getOneUser } from '../services/api-helper';
 
-export default class UpdateFood extends Component {
+export default class UpdateUser extends Component {
   state = {
     name: ""
   }
@@ -18,9 +18,9 @@ export default class UpdateFood extends Component {
   }
 
   setFormData = async () => {
-    const foodItem = await getOneFood(this.props.foodId);
+    const userItem = await getOneUser(this.props.userId);
     this.setState({
-      name: foodItem.name
+      name: userItem.name
     })
   }
 
@@ -28,10 +28,10 @@ export default class UpdateFood extends Component {
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
-        this.props.handleFoodUpdate(this.props.foodId, this.state);
-        this.props.history.push('/foods');
+        this.props.handleUserUpdate(this.props.userId, this.state);
+        this.props.history.push('/users');
       }}>
-        <h3>Update Food</h3>
+        <h3>Update User</h3>
         <input
           type="text"
           value={this.state.name}

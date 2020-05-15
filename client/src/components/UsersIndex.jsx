@@ -1,23 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function ShowFoods(props) {
+export default function ShowUsers(props) {
   return (
     <div>
-      <h3>Foods</h3>
-      {props.foods.map(food => (
-        <React.Fragment key={food.id}>
-          <Link to={`/foods/${food.id}`}>{food.name}</Link>
+      <h3>Users</h3>
+      {props.users.map(user => (
+        <React.Fragment key={user.id}>
+          <Link to={`/users/${user.id}`}>{user.name}</Link>
           <button onClick={() => {
-            props.history.push(`/foods/${food.id}/edit`);
+            props.history.push(`/users/${user.id}/edit`);
           }}>Edit</button>
           <button onClick={() => {
-            props.handleFoodDelete(food.id);
+            props.handleUserDelete(user.id);
           }}>Delete</button>
           <br />
         </React.Fragment>
       ))}
-      <Link to="/new/foods"><button>Create</button></Link>
+      <Link to="/new/users"><button>Create</button></Link>
     </div>
   )
 }

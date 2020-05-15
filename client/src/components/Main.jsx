@@ -3,55 +3,55 @@ import { Route } from 'react-router-dom';
 
 import Login from './Login';
 import Register from './Register';
-import { getAllFlavors, getAllFoods, postFood, putFood, destroyFood } from '../services/api-helper';
-import ShowFlavors from './ShowFlavors';
-import ShowFoods from './ShowFoods';
-import CreateFood from './CreateFood';
-import UpdateFood from './UpdateFood';
-import FoodItem from './FoodItem';
+import { getAllSongs, getAllUsers, postUser, putUser, destroyUser } from '../services/api-helper';
+import ShowSongs from './ShowSongs';
+import ShowUsers from './ShowUsers';
+import CreateUser from './CreateUser';
+import UpdateUser from './UpdateUser';
+import ShowUser from './ShowUser';
 
 export default class Main extends Component {
   state = {
-    flavors: [],
-    foods: []
+    songs: [],
+    users: []
   }
 
   componentDidMount() {
-    this.readAllFlavors();
-    this.readAllFoods();
+    this.readAllSongs();
+    this.readAllUsers();
   }
 
-  readAllFlavors = async () => {
-    const flavors = await getAllFlavors();
-    this.setState({ flavors })
+  readAllSongs = async () => {
+    const songs = await getAllSongs();
+    this.setState({ songs })
   }
 
-  readAllFoods = async () => {
-    const foods = await getAllFoods();
-    this.setState({ foods })
+  readAllUsers = async () => {
+    const users = await getAllUsers();
+    this.setState({ users })
   }
 
-  handleFoodSubmit = async (foodData) => {
-    const newFood = await postFood(foodData);
+  handleUserSubmit = async (userData) => {
+    const newUser = await postUser(userData);
     this.setState(prevState => ({
-      foods: [...prevState.foods, newFood]
+      users: [...prevState.users, newUser]
     }))
   }
 
-  handleFoodUpdate = async (id, foodData) => {
-    const updatedFood = await putFood(id, foodData);
+  handleUserUpdate = async (id, userData) => {
+    const updatedUser = await putUser(id, userData);
     this.setState(prevState => ({
-      foods: prevState.foods.map(food => {
-        return food.id === id ? updatedFood : food
+      users: prevState.users.map(user => {
+        return user.id === id ? updatedUser : user
       })
     }))
   }
 
-  handleFoodDelete = async (id) => {
-    await destroyFood(id);
+  handleUserDelete = async (id) => {
+    await destroyUser(id);
     this.setState(prevState => ({
-      foods: prevState.foods.filter(food => {
-        return food.id !== id
+      users: prevState.users.filter(user => {
+        return user.id !== id
       })
     }))
   }
@@ -72,37 +72,37 @@ export default class Main extends Component {
             handleRegister={this.props.handleRegister}
           />
         )} />
-        <Route path='/flavors' render={() => (
-          <ShowFlavors
-            flavors={this.state.flavors}
+        <Route path='/songs' render={() => (
+          <ShowSongs
+            songs={this.state.songs}
           />
         )} />
-        <Route exact path='/foods' render={(props) => (
-          <ShowFoods
+        <Route exact path='/users' render={(props) => (
+          <ShowUsers
             {...props}
-            handleFoodDelete={this.handleFoodDelete}
-            foods={this.state.foods}
+            handleUserDelete={this.handleUserDelete}
+            users={this.state.users}
           />
         )} />
-        <Route path="/new/foods" render={(props) => (
-          <CreateFood
+        <Route path="/new/users" render={(props) => (
+          <CreateUser
             {...props}
-            handleFoodSubmit={this.handleFoodSubmit}
+            handleUserSubmit={this.handleUserSubmit}
           />
         )} />
-        <Route path='/foods/:id/edit' render={(props) => {
+        <Route path='/users/:id/edit' render={(props) => {
           const { id } = props.match.params
-          return <UpdateFood
+          return <UpdateUser
             {...props}
-            handleFoodUpdate={this.handleFoodUpdate}
-            foodId={id}
+            handleUserUpdate={this.handleUserUpdate}
+            userId={id}
           />
         }} />
-        <Route exact path='/foods/:id' render={(props) => {
+        <Route exact path='/users/:id' render={(props) => {
           const { id } = props.match.params
-          return <FoodItem
-            foodId={id}
-            flavors={this.state.flavors}
+          return <UserItem
+            userId={id}
+            songs={this.state.songs}
           />
         }
         } />

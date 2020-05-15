@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class CreateFood extends Component {
+export default class CreateUser extends Component {
   state = {
     name: ""
   }
@@ -16,10 +16,10 @@ export default class CreateFood extends Component {
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
-        this.props.handleFoodSubmit(this.state);
-        this.props.history.push('/foods');
+        this.props.handleUserSubmit(this.state);
+        this.props.history.push('/users');
       }}>
-        <h3>Create Food</h3>
+        <h3>Create User</h3>
         <input
           type="text"
           value={this.state.name}

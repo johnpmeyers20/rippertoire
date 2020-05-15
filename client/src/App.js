@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import './App.css';
 
 import { readAllUsers, readAllSongs } from './services/api-helper';
@@ -44,17 +44,16 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi</h1>
-
+        <Link to='/'><button>Home</button></Link>
+        <Link to='/songs'><button>click me please!</button></Link>
         <Route path='/users' render={() => (
           <UsersIndex
             users={this.state.users}
           />
         )} />
-        <Route path='/songs' render={() => (
-          <SongsIndex
-            songs={this.state.songs}
-          />
-        )} />
+
+        {/* <Route exact path='/' render={props => <ArticleList {...props} headlines={this.state.headlines} />} /> */}
+        <Route path='/songs' render={props => <SongsIndex songs={this.state.songs} />} />
       </div>
     );
   }

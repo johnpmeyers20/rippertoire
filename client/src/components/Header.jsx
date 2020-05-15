@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Header(props) {
   return (
     <header>
+      <Link to='/'><button>Home</button></Link>
       <h1>Rippertoire</h1>
       {
         props.currentUser
@@ -15,14 +16,12 @@ export default function Header(props) {
           :
           <Link to="/login">Login/Register</Link>
       }
-      <hr />
       {
         props.currentUser
         &&
         <>
           <Link to="/users">Users</Link>
           <Link to="/songs">Songs</Link>
-          <hr />
         </>
       }
 

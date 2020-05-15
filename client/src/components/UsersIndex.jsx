@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function ShowUsers(props) {
+export default function UsersIndex(props) {
   return (
     <div>
       <h3>Users</h3>
@@ -21,19 +21,3 @@ export default function ShowUsers(props) {
     </div>
   )
 }
-
-
-
-
-// import React from 'react'
-
-// export default function UsersIndex(props) {
-//   return (
-//     <div>
-//       <h3>Users list:</h3>
-//       {props.users.map((user) => (
-//         <p>{user.username}</p>
-//       ))}
-//     </div>
-//   )
-// }

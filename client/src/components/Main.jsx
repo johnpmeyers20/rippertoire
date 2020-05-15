@@ -3,12 +3,12 @@ import { Route } from 'react-router-dom';
 
 import Login from './Login';
 import Register from './Register';
-import { getAllSongs, getAllUsers, postUser, putUser, destroyUser } from '../services/api-helper';
-import ShowSongs from './ShowSongs';
-import ShowUsers from './ShowUsers';
+import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser } from '../services/api-helper';
+import SongsIndex from './SongsIndex';
+import UsersIndex from './UsersIndex';
 import CreateUser from './CreateUser';
 import UpdateUser from './UpdateUser';
-import ShowUser from './ShowUser';
+import UserItem from './UserItem';
 
 export default class Main extends Component {
   state = {
@@ -17,11 +17,11 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    this.readAllSongs();
+    this.getAllSongs();
     this.readAllUsers();
   }
 
-  readAllSongs = async () => {
+  getAllSongs = async () => {
     const songs = await getAllSongs();
     this.setState({ songs })
   }
@@ -39,7 +39,7 @@ export default class Main extends Component {
   }
 
   handleUserUpdate = async (id, userData) => {
-    const updatedUser = await putUser(id, userData);
+    const updatedUser = await updateUser(id, userData);
     this.setState(prevState => ({
       users: prevState.users.map(user => {
         return user.id === id ? updatedUser : user
@@ -73,12 +73,12 @@ export default class Main extends Component {
           />
         )} />
         <Route path='/songs' render={() => (
-          <ShowSongs
+          <SongsIndex
             songs={this.state.songs}
           />
         )} />
         <Route exact path='/users' render={(props) => (
-          <ShowUsers
+          <UsersIndex
             {...props}
             handleUserDelete={this.handleUserDelete}
             users={this.state.users}

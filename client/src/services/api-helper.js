@@ -45,12 +45,12 @@ export const getAllUsers = async () => {
   return resp.data;
 }
 
-export const readOneUser = async (id) => {
+export const getOneUser = async (id) => {
   const resp = await api.get(`/users/${id}`);
   return resp.data;
 }
 
-export const createUser = async (userData) => {
+export const postUser = async (userData) => {
   const resp = await api.post('/users', { user: userData });
   return resp.data;
 }
@@ -69,7 +69,7 @@ export const destroyUser = async (id) => {
 // ============= Songs ==============
 // ====================================
 
-export const readAllSongs = async () => {
+export const getAllSongs = async () => {
   const resp = await api.get('/users/:user_id/songs');
   return resp.data;
 }

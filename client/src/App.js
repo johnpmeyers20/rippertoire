@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
+import { Route } from 'react-router-dom';
 import './App.css';
 
 import { readAllFood, readAllFlavors } from './services/api-helper';

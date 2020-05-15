@@ -37,44 +37,44 @@ export const removeToken = () => {
 }
 
 // ====================================
-// ============= Foods ================
+// ============= Users ================
 // ====================================
 
-export const readAllFood = async () => {
-  const resp = await api.get('/foods');
+export const readAllUsers = async () => {
+  const resp = await api.get('/users');
   return resp.data;
 }
 
-export const readOneFood = async (id) => {
-  const resp = await api.get(`/foods/${id}`);
+export const readOneUser = async (id) => {
+  const resp = await api.get(`/users/${id}`);
   return resp.data;
 }
 
-export const createFood = async (foodData) => {
-  const resp = await api.post('/foods', {food: foodData});
+export const createUser = async (userData) => {
+  const resp = await api.post('/users', { user: userData });
   return resp.data;
 }
 
-export const updateFood = async (foodData, id) => {
-  const resp = await api.put(`/foods/${id}`, {food: foodData});
+export const updateUser = async (userData, id) => {
+  const resp = await api.put(`/users/${id}`, { user: userData });
   return resp.data;
 }
 
-export const destroyFood = async (id) => {
-  const resp = await api.delete(`/foods/${id}`);
+export const destroyUser = async (id) => {
+  const resp = await api.delete(`/users/${id}`);
   return resp.data;
 }
 
 // ====================================
-// ============= Flavors ==============
+// ============= Songs ==============
 // ====================================
 
-export const readAllFlavors = async () => {
-  const resp = await api.get('/flavors');
+export const readAllSongs = async () => {
+  const resp = await api.get('/users/:user_id/songs');
   return resp.data;
 }
 
-export const addFlavor = async (flavorId, id) => {
-  const resp = await api.get(`/flavors/${flavorId}/foods/${id}`);
+export const addSong = async (songId, id) => {
+  const resp = await api.get(`/users/${songId}/songs`);
   return resp.data
 }

@@ -2,38 +2,38 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 
-import { readAllFood, readAllFlavors } from './services/api-helper';
-import FoodsIndex from './components/FoodsIndex';
-import FlavorsIndex from './components/FlavorsIndex';
+import { readAllUsers, readAllSongs } from './services/api-helper';
+import UsersIndex from './components/UsersIndex';
+import SongsIndex from './components/SongsIndex';
 
 
 class App extends Component {
   state = {
-    foods: [],
-    flavors: []
+    users: [],
+    songs: []
   }
 
   componentDidMount() {
-    this.getFoods();
-    this.getFlavors()
+    this.getUsers();
+    this.getSongs();
   }
 
   // ====================================
-  // ============= Foods ================
+  // ============= Users ================
   // ====================================
 
-  getFoods = async () => {
-    const foods = await readAllFood();
-    this.setState({ foods });
+  getUsers = async () => {
+    const users = await readAllUsers();
+    this.setState({ users });
   }
 
   // ====================================
-  // ============= Flavors ==============
+  // ============= Songs ==============
   // ====================================
 
-  getFlavors = async () => {
-    const flavors = await readAllFlavors();
-    this.setState({ flavors });
+  getSongs = async () => {
+    const songs = await readAllSongs();
+    this.setState({ songs });
   }
 
   // ====================================
@@ -45,14 +45,14 @@ class App extends Component {
       <div className="App">
         <h1>Hi</h1>
 
-        <Route path='/foods' render={() => (
-          <FoodsIndex
-            foods={this.state.foods}
+        <Route path='/users' render={() => (
+          <UsersIndex
+            users={this.state.users}
           />
         )} />
-        <Route path='/flavors' render={() => (
-          <FlavorsIndex
-            flavors={this.state.flavors}
+        <Route path='/songs' render={() => (
+          <SongsIndex
+            songs={this.state.songs}
           />
         )} />
       </div>

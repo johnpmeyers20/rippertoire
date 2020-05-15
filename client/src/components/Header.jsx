@@ -4,24 +4,24 @@ import { Link } from 'react-router-dom';
 export default function Header(props) {
   return (
     <header>
-      <Link className='nav-item' id='header-icon' to='/'><h1>Rippertoire</h1></Link>
+      <Link id='header-icon' to='/'><h1>Rippertoire</h1></Link>
       {
         props.currentUser
           ?
           <>
-            <p className='nav-item'>{props.currentUser.username}</p>
-            <button className='nav-item' onClick={props.handleLogout}>Logout</button>
+            <Link className='sign-in-out-up' onClick={props.handleLogout} to="/">Logout</Link>
           </>
           :
-          <Link className='nav-item' id='register' to="/login">Login/Register</Link>
+          <Link className='sign-in-out-up' to="/login">Login/Register</Link>
       }
       {
         props.currentUser
         &&
-        <>
-          <Link className='nav-item' to="/users">Users</Link>
-          <Link className='nav-item' to="/songs">Songs</Link>
-        </>
+        <div className='list-links'>
+          <Link to="/users">Users</Link>
+          <Link to="/songs">Songs</Link>
+          <Link to='/users/future'>Future</Link>
+        </div>
       }
 
     </header>

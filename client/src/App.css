@@ -1,34 +1,27 @@
-/* body {
-  text-align: center;
-}
-.header-icon {
-  text-decoration: none;
-}
-header {
-  background-color: orange;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-#header-icon {
-  align-self: center;
-  justify-self: center;
-} */
+
 body {
-  margin: 0;
+ margin: 0;
 }
 header {
   background-color: orange;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: '. l c'
+  grid-template-areas: 'a b c'
 }
+.list-links {
+  grid-area: a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
+}
+
 #header-icon {
-  grid-area: l;
+  grid-area: b;
   text-align: center;
 }
-#register {
+
+.sign-in-out-up {
   grid-area: c;
   justify-self: center;
   align-self: center;

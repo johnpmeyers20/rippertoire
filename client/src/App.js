@@ -4,12 +4,7 @@ import './App.css'
 
 import Header from './components/Header';
 import Main from './components/Main';
-import {
-  loginUser,
-  registerUser,
-  verifyUser,
-  removeToken
-} from './services/api-helper';
+import { loginUser, registerUser, verifyUser, removeToken } from './services/api-helper';
 
 class App extends Component {
   state = {
@@ -47,14 +42,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          handleLogout={this.handleLogout}
-          currentUser={this.state.currentUser}
-        />
-        <Main
-          handleRegister={this.handleRegister}
-          handleLogin={this.handleLogin}
-        />
+        <Header handleLogout={this.handleLogout} currentUser={this.state.currentUser} />
+        <Main handleRegister={this.handleRegister} handleLogin={this.handleLogin} />
       </div>
     )
   }

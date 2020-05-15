@@ -16,10 +16,10 @@ export const loginUser = async (loginData) => {
 }
 
 export const registerUser = async (registerData) => {
-  const resp = await api.post('/users/', { user: registerData })
+  const resp = await api.post('/users/', { user: registerData });
   localStorage.setItem('authToken', resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-  return resp.data.user
+  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+  return resp.data.user;
 }
 
 export const verifyUser = async () => {
@@ -40,7 +40,7 @@ export const removeToken = () => {
 // ============= Users ================
 // ====================================
 
-export const readAllUsers = async () => {
+export const getAllUsers = async () => {
   const resp = await api.get('/users');
   return resp.data;
 }

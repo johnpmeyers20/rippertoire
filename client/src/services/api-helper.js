@@ -16,10 +16,10 @@ export const loginUser = async (loginData) => {
 }
 
 export const registerUser = async (registerData) => {
-  const resp = await api.post('/users/', { user: registerData })
+  const resp = await api.post('/users/', { user: registerData });
   localStorage.setItem('authToken', resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-  return resp.data.user
+  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+  return resp.data.user;
 }
 
 export const verifyUser = async () => {
@@ -40,17 +40,17 @@ export const removeToken = () => {
 // ============= Users ================
 // ====================================
 
-export const readAllUsers = async () => {
+export const getAllUsers = async () => {
   const resp = await api.get('/users');
   return resp.data;
 }
 
-export const readOneUser = async (id) => {
+export const getOneUser = async (id) => {
   const resp = await api.get(`/users/${id}`);
   return resp.data;
 }
 
-export const createUser = async (userData) => {
+export const postUser = async (userData) => {
   const resp = await api.post('/users', { user: userData });
   return resp.data;
 }
@@ -69,7 +69,7 @@ export const destroyUser = async (id) => {
 // ============= Songs ==============
 // ====================================
 
-export const readAllSongs = async () => {
+export const getAllSongs = async () => {
   const resp = await api.get('/users/:user_id/songs');
   return resp.data;
 }

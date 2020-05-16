@@ -7929,3 +7929,201 @@ Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocati
 Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.7ms | Allocations: 2063)
 
 
+Started GET "/users" for ::1 at 2020-05-16 08:44:54 -0400
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:44:54 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SongsController#index as HTML
+Processing by UsersController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1512)
+
+
+  [1m[36mSong Load (3.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 87ms (Views: 25.3ms | ActiveRecord: 52.8ms | Allocations: 8406)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:45:39 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:45:39 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+  [1m[36mSong Load (18.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 5.7ms | ActiveRecord: 18.9ms | Allocations: 2747)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:45:48 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:45:48 -0400
+Processing by SongsController#index as HTML
+Processing by UsersController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 261)
+
+
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms | Allocations: 2119)
+
+
+Started GET "/users" for ::1 at 2020-05-16 08:48:08 -0400
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:48:08 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 1878)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:48:33 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:48:33 -0400
+Processing by SongsController#index as HTML
+Processing by UsersController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 259)
+
+
+  [1m[36mSong Load (10.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 2.0ms | ActiveRecord: 10.2ms | Allocations: 2109)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:48:39 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:48:39 -0400
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.8ms | Allocations: 1874)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:49:40 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:49:40 -0400
+Processing by UsersController#index as HTML
+Processing by SongsController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  Parameters: {"user_id"=>":user_id"}
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 153)
+
+
+  [1m[36mSong Load (2.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 2.4ms | Allocations: 2081)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:49:49 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:49:49 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+Processing by UsersController#index as HTML
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Filter chain halted as :authorize_request rendered or redirected
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 1.0ms | Allocations: 2493)
+
+
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1261)
+
+
+Started GET "/users" for ::1 at 2020-05-16 08:50:27 -0400
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:50:27 -0400
+Processing by UsersController#index as HTML
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 277)
+
+
+  [1m[36mSong Load (5.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 5.5ms | Allocations: 2117)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:50:36 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:50:36 -0400
+Processing by SongsController#index as HTML
+Processing by UsersController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 254)
+
+
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 2109)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:52:00 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:52:00 -0400
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+  [1m[36mSong Load (1.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.5ms | Allocations: 1860)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:54:10 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:54:10 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Processing by UsersController#index as HTML
+  [1m[36mSong Load (3.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Filter chain halted as :authorize_request rendered or redirected
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 3.1ms | Allocations: 2479)
+
+
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1879)
+
+
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:55:17 -0400
+Started GET "/users" for ::1 at 2020-05-16 08:55:17 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+  [1m[36mSong Load (3.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 3.4ms | Allocations: 2252)
+
+
+Started GET "/users" for ::1 at 2020-05-16 08:57:20 -0400
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-16 08:57:20 -0400
+Processing by UsersController#index as HTML
+Processing by SongsController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 152)
+
+
+  Parameters: {"user_id"=>":user_id"}
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 1920)
+
+

@@ -35,25 +35,26 @@ export default class Login extends Component {
               onChange={this.handleChange}
               />
           </div>
-          <br />
-          <label htmlFor="email">email:</label>
-          <input
-            id="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <br />
-          <label htmlFor="password">password:</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <br />
+          <div className='form-field'>
+            <label htmlFor="email">email:</label>
+            <input
+              id="email"
+              type="text"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className='form-field'>
+            <label htmlFor="password">password:</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+         </div>
           <button className='login-submit'>Submit</button>
         </form>
         <p>Don't have an account, yet?</p>

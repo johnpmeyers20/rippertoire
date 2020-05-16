@@ -61,3 +61,12 @@ main {
 .login-submit {
   justify-content: center;
 }
+.form-field {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.form-field label {
+  margin-right: 10px;
+  align-items: flex-start;
+}

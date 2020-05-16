@@ -12,7 +12,7 @@ function CatsShow(props) {
         <h2>Past</h2>
         {currentUser && songs.filter(song => song.user_id === currentUser.id).map(song => (
           <React.Fragment key={song.id}>
-            <Link to={`/users/${song.category_id}/${song.title}`}><h3>{song.title}</h3></Link>
+            <Link to={`/user/${song.category_id}/${song.title}`}><h3>{song.title}</h3></Link>
           </React.Fragment>
         ))}
       </div>

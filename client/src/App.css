@@ -48,6 +48,9 @@ main {
   justify-content: center;
   text-align: center;  
 }
+/* ================================================== */
+/* ====================== Login ====================== */
+/* ================================================== */
 .login-form {
   grid-area: e;
 }
@@ -59,6 +62,31 @@ main {
   text-align: center;
 }
 .login-submit {
+  justify-content: center;
+}
+.form-field {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.form-field label {
+  margin-right: 10px;
+  align-items: flex-start;
+}
+/* ================================================== */
+/* ==================== Register ==================== */
+/* ================================================== */
+.register-form {
+  grid-area: e;
+}
+.register-form p {
+  margin: 0;
+  margin-top: 26px;
+}
+.register-title {
+  text-align: center;
+}
+.register-submit {
   justify-content: center;
 }
 .form-field {

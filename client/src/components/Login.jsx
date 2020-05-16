@@ -31,19 +31,10 @@ export default class Login extends Component {
               id="username"
               type="text"
               name="username"
+              autoComplete="username"
               value={username}
               onChange={this.handleChange}
               />
-          </div>
-          <div className='form-field'>
-            <label htmlFor="email">email:</label>
-            <input
-              id="email"
-              type="text"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
           </div>
           <div className='form-field'>
             <label htmlFor="password">password:</label>
@@ -51,6 +42,7 @@ export default class Login extends Component {
               id="password"
               type="password"
               name="password"
+              autoComplete="off"
               value={password}
               onChange={this.handleChange}
             />

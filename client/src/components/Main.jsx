@@ -9,6 +9,8 @@ import UsersIndex from './UsersIndex';
 import CreateUser from './CreateUser';
 import UpdateUser from './UpdateUser';
 import UserItem from './UserItem';
+import CatPreview from './CatPreview';
+import CatsShow from './CatsShow';
 
 export default class Main extends Component {
   state = {
@@ -60,11 +62,12 @@ export default class Main extends Component {
   render() {
     return (
       <main>
-        <Route path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} />)}/>
-        <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister}/>)}/>
-        <Route path='/songs' render={() => (<SongsIndex songs={this.state.songs}/>)}/>
-        <Route exact path='/users' render={(props) => (<UsersIndex {...props} handleUserDelete={this.handleUserDelete} users={this.state.users}/>)}/>
-        <Route path="/new/users" render={(props) => (<CreateUser {...props} handleUserSubmit={this.handleUserSubmit}/>)}/>
+        <Route exact path='/' render={(props) => (<CatPreview {...props} />)} />
+        <Route exact path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} />)} />
+        <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister} />)} />
+        <Route path='/songs' render={() => (<SongsIndex songs={this.state.songs} />)} />
+        <Route exact path='/users' render={(props) => (<UsersIndex {...props} handleUserDelete={this.handleUserDelete} users={this.state.users} />)} />
+        <Route path="/new/users" render={(props) => (<CreateUser {...props} handleUserSubmit={this.handleUserSubmit} />)} />
         <Route path='/users/:id/edit' render={(props) => {
           const { id } = props.match.params
           return <UpdateUser

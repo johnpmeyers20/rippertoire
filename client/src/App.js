@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header handleLogout={this.handleLogout} currentUser={this.state.currentUser} />
-        <Main handleRegister={this.handleRegister} handleLogin={this.handleLogin} />
+        <Main handleRegister={this.handleRegister} handleLogin={this.handleLogin} currentUser={this.state.currentUser}/>
       </div>
     )
   }

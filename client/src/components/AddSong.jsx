@@ -29,6 +29,19 @@ export default class AddSong extends Component {
       }}>
         <h3>Add Song</h3>
         <div className='form-field'>
+          <label htmlFor='category_id'>category:</label>
+          <select id="category_id"
+            type="number"
+            name="category_id"
+            autoComplete='category_id'
+            onChange={this.handleChange}>
+            <option>--Select a song--</option>
+            <option type='number' value={1}>Past</option>
+            <option type="number" value={2}>Present</option>
+            <option type='number' value={3}>Future</option>
+          </select>
+        </div>
+        <div className='form-field'>
           <label htmlFor="artist">artist:</label>
           <input
             id="artist"
@@ -50,25 +63,16 @@ export default class AddSong extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div className='form-field'>
-          <label htmlFor="lyrics">lyrics:</label>
-          <input
-            id="lyrics"
-            type="text"
-            name="lyrics"
-            autoComplete="lyrics"
-            value={lyrics}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className='form-field'>
-          <label htmlFor='category_id'>category:</label>
-          <select id="category_id" type="number" name="category_id" autoComplete='category_id' onChange={this.handleChange}>
-            <option>--Select a song--</option>
-            <option type='number' value={1}>Past</option>
-            <option type="number" value={2}>Present</option>
-            <option type='number' value={3}>Future</option>
-          </select>
+        <div>
+          <label>
+            Lyrics:
+            <textarea id='lyrics'
+              type='lyrics'
+              name='lyrics'
+              autoComplete='lyrics'
+              value={lyrics}
+              onChange={this.handleChange} />
+          </label>
         </div>
         <button>Submit</button>
       </form>

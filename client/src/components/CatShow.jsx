@@ -10,7 +10,7 @@ export default function CatShow(props) {
   if (currentUser && props.match.params.category == 1) {
     return (
       <>
-        <div>
+        <div className='categorized-list'>
           <h2>Past</h2>
           {songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 1).map(song => (
             <React.Fragment key={song.id}>
@@ -24,7 +24,7 @@ export default function CatShow(props) {
   else if (currentUser && props.match.params.category == 2) {
     return (
       <>
-        <div>
+        <div className='categorized-list'>
           <h2>Present</h2>
           {songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 2).map(song => (
             <React.Fragment key={song.id}>
@@ -38,7 +38,7 @@ export default function CatShow(props) {
   else if (currentUser && props.match.params.category == 3) {
     return (
       <>
-        <div>
+        <div className='categorized-list'>
           <h2>Future</h2>
           {songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 3).map(song => (
             <React.Fragment key={song.id}>

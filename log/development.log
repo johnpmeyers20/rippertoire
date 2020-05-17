@@ -20677,3 +20677,45 @@ Completed 200 OK in 18ms (Views: 0.6ms | ActiveRecord: 5.5ms | Allocations: 1210
 Completed 200 OK in 113ms (Views: 101.4ms | ActiveRecord: 9.8ms | Allocations: 5135)
 
 
+Started GET "/users" for ::1 at 2020-05-17 10:18:20 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-17 10:18:20 -0400
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-17 10:18:20 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by SongsController#index as HTML
+Processing by UsersController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 270)
+
+
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (4.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 0.6ms | ActiveRecord: 4.6ms | Allocations: 2153)
+
+
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 4.8ms | Allocations: 5201)
+
+
+Started GET "/users" for ::1 at 2020-05-17 10:19:03 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-17 10:19:03 -0400
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-17 10:19:03 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by SongsController#index as HTML
+Processing by UsersController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 257)
+
+
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 1442)
+
+
+  [1m[36mSong Load (10.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 7.9ms | ActiveRecord: 10.5ms | Allocations: 5397)
+
+

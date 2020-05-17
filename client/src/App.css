@@ -130,6 +130,6 @@ footer {
   overflow: auto;
   grid-area: e;
 }
-.song-edit-button {
-  grid-area: d;
+.categorized-list {
+  grid-area: e;
 }

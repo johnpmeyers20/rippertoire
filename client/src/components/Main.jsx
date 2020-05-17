@@ -11,6 +11,7 @@ import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser, postSong }
 // import UserItem from './UserItem';
 import CatPreview from './CatPreview';
 import CatsShow from './CatsShow';
+import CatShow from './CatShow';
 import IndividualSong from './IndividualSong';
 import AddSong from './AddSong';
 // import CatsShow from './CatsShow';
@@ -80,6 +81,7 @@ export default class Main extends Component {
         <Route exact path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} currentUser={this.props.currentUser}/>)} />
         <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister} />)} />
         <Route exact path='/user' render={(props) => (<CatsShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
+        <Route path='/user/:category' render={(props) => (<CatShow {...props} currentUser={this.props.currentUser} songs={this.state.songs}/>)}/>
         <Route path='/user/:category/:song' render={(props) => (<IndividualSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
         <Route path='/add' render={(props) => (<AddSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} handleSongSubmit={this.handleSongSubmit}/>)} />
       </main>

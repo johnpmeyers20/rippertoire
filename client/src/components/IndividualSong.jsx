@@ -3,7 +3,7 @@ import React from 'react'
 function IndividualSong(props) {
   const songs = props.songs
   const currentUser = props.currentUser
-
+  console.log(props.match.params.song)
   return (
     <div className='song-info'>
       <h2>{currentUser && props.match.params.song}</h2>

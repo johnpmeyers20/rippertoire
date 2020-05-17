@@ -87,3 +87,8 @@ export const postSong = async (songData, user_id) => {
   const resp = await api.post(`/users/${user_id}/songs`, { song: songData });
   return resp.data;
 }
+
+export const destroySong = async (id) => {
+  const resp = await api.delete(`/users/${id}`);
+  return resp.data;
+}

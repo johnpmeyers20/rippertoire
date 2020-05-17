@@ -18862,3 +18862,27 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 922)
 
 
+Started GET "/auth/verify" for ::1 at 2020-05-17 00:05:34 -0400
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-17 00:05:34 -0400
+Started GET "/users" for ::1 at 2020-05-17 00:05:34 -0400
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (16.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (17.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Processing by SongsController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  Parameters: {"user_id"=>":user_id"}
+Processing by AuthenticationController#verify as HTML
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 226)
+
+
+  [1m[36mSong Load (23.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 97ms (Views: 37.2ms | ActiveRecord: 45.0ms | Allocations: 12313)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 102ms (Views: 0.2ms | ActiveRecord: 74.4ms | Allocations: 16619)
+
+

@@ -223,6 +223,10 @@ database_db
   - _Users should be able to track current bpm speeds of play for leads_
   - _Users should be able to input goals for playing_
   - _Users should be able to select from a list of instruments to indicate what they are learning the song on_
+  - _Anatomy of song items should be listed (verse, prechorus, chorus, bridge)_
+    - _User can drag and drop section onto lyrics and it will automatically take on a background-color_
+    - _If it's the second verse, II should be added automatically after_
+    - _Label i.e. chorus, should display vertically on right side_
 
 
 ***

@@ -23,13 +23,18 @@ export const registerUser = async (registerData) => {
 }
 
 export const verifyUser = async () => {
-  const token = localStorage.getItem('authToken');
-  if (token) {
-    api.defaults.headers.common.authorization = `Bearer ${token}`
-    const resp = await api.get('/auth/verify');
-    return resp.data
+  try {
+    console.log('This is from verifyUser in api-helper')
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      api.defaults.headers.common.authorization = `Bearer ${token}`
+      const resp = await api.get('/auth/verify');
+      return resp.data
+    }
+    return false
+  } catch (e) {
+    return false
   }
-  return false
 }
 
 export const removeToken = () => {
@@ -85,5 +90,15 @@ export const addSong = async (songId, id) => {
 
 export const postSong = async (songData, user_id) => {
   const resp = await api.post(`/users/${user_id}/songs`, { song: songData });
+  return resp.data;
+}
+
+export const updateSong = async (songData, song) => {
+  const resp = await api.put(`/users/:user_id/songs/${song}`, { song: songData });
+  return resp.data;
+}
+
+export const destroySong = async (id) => {
+  const resp = await api.delete(`/users/:user_id/songs/${id}`);
   return resp.data;
 }

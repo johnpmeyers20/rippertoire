@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 export default function Header(props) {
   return (
     <header>
-      <Link id='header-icon' to='/'><h1>Rippertoire</h1></Link>
+      {
+        props.currentUser
+          ?
+          <Link id='header-icon' to='/user'><h1>Rippertoire</h1></Link>
+          :
+          <Link id='header-icon' to='/'><h1>Rippertoire</h1></Link>
+      }
       {
         props.currentUser
           ?
@@ -18,12 +24,11 @@ export default function Header(props) {
         props.currentUser
         &&
         <div className='list-links'>
-          <Link to="/users">Users</Link>
-          <Link to="/songs">Songs</Link>
-          <Link to='/users/future'>Future</Link>
+          <Link to='/user/1'>Past</Link>
+          <Link to='/user/2'>Present</Link>
+          <Link to='/user/3'>Future</Link>
         </div>
       }
-
     </header>
   )
 }

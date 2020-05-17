@@ -3,7 +3,6 @@ import React from 'react'
 function IndividualSong(props) {
   const songs = props.songs
   const currentUser = props.currentUser
-  console.log(props)
 
   return (
     <div>
@@ -14,9 +13,3 @@ function IndividualSong(props) {
 }
 
 export default IndividualSong
-
-      {/* {currentUser && songs.filter(song => song.user_id === currentUser.id).map(song => (
-          <React.Fragment key={song.id}>
-            <Link to={`/user/${song.category_id}/${song.title}`}><h3>{song.title}</h3></Link>
-          </React.Fragment>
-        ))} */}

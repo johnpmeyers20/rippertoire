@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Login from './Login';
 import Register from './Register';
-import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser, postSong } from '../services/api-helper';
+import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser, postSong, destroySong } from '../services/api-helper';
 // import SongsIndex from './SongsIndex';
 // import UsersIndex from './UsersIndex';
 // import CreateUser from './CreateUser';
@@ -73,6 +73,15 @@ export default class Main extends Component {
     }))
   }
 
+  handleSongDelete = async (id) => {
+    await destroySong(id);
+    this.setState(prevState => ({
+      songs: prevState.songs.filter(song => {
+        return song.id !== id
+      })
+    }))
+    
+  }
 
   render() {
     return (
@@ -82,7 +91,7 @@ export default class Main extends Component {
         <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister} />)} />
         <Route exact path='/user' render={(props) => (<CatsShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
         <Route exact path='/user/:category' render={(props) => (<CatShow {...props} currentUser={this.props.currentUser} songs={this.state.songs}/>)}/>
-        <Route path='/user/:category/:song' render={(props) => (<IndividualSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
+        <Route path='/user/:category/:song' render={(props) => (<IndividualSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} handleSongDelete={this.handleSongDelete} />)} />
         <Route path='/add' render={(props) => (<AddSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} handleSongSubmit={this.handleSongSubmit}/>)} />
       </main>
     )

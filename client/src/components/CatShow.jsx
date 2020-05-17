@@ -7,7 +7,7 @@ export default function CatShow(props) {
   const songs = props.songs
   const currentUser = props.currentUser
   console.log(props.match.params.category)
-  if (currentUser && props.match.params.category == 1) {
+  if (currentUser && props.match.params.category === 1) {
     return (
       <>
         <div className='categorized-list'>
@@ -21,7 +21,7 @@ export default function CatShow(props) {
       </>
     )
   }
-  else if (currentUser && props.match.params.category == 2) {
+  else if (currentUser && props.match.params.category === 2) {
     return (
       <>
         <div className='categorized-list'>
@@ -35,7 +35,7 @@ export default function CatShow(props) {
       </>
     )
   }
-  else if (currentUser && props.match.params.category == 3) {
+  else if (currentUser && props.match.params.category === 3) {
     return (
       <>
         <div className='categorized-list'>

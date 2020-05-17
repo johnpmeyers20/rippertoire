@@ -128,4 +128,8 @@ footer {
 
 .song-info {
   overflow: auto;
+  grid-area: e;
+}
+.song-edit-button {
+  grid-area: d;
 }

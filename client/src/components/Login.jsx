@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
 export default class Login extends Component {
-  state = {
-    username: '',
-    email: '',
-    password: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+      password: ''
+    }
   }
 
   handleChange = (e) => {
@@ -16,44 +18,45 @@ export default class Login extends Component {
   }
 
   render() {
-    const { username, email, password } = this.state;
+    const { username, password } = this.state;
     return (
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        this.props.handleLogin(this.state);
-        this.props.history.push('/');
-      }}>
-        <h3>Login</h3>
-        <label htmlFor="username">username:</label>
-        <input
-          id="username"
-          type="text"
-          name="username"
-          value={username}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label htmlFor="email">email:</label>
-        <input
-          id="email"
-          type="text"
-          name="email"
-          value={email}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label htmlFor="password">password:</label>
-        <input
-          id="password"
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-        />
-        <br />
-        <Link to='/register'>register</Link>
-        <button>Submit</button>
-      </form>
+      <div className='login-form'>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          this.props.handleLogin(this.state);
+          // console.log(this.props.currentUser);
+          // console.log(this.props.currentUser.id);
+          
+          this.props.history.push(`/user`);
+        }}>
+          <h3 className='login-title'>Login</h3>
+          <div className='form-field'>
+            <label htmlFor="username">username:</label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              autoComplete="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className='form-field'>
+            <label htmlFor="password">password:</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              autoComplete="off"
+              value={password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <button className='login-submit'>Submit</button>
+        </form>
+        <p>Don't have an account, yet?</p>
+        <Link to='/register'>Join Now</Link>
+      </div>
     )
   }
 }

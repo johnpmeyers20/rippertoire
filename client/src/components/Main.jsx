@@ -3,19 +3,27 @@ import { Route } from 'react-router-dom';
 
 import Login from './Login';
 import Register from './Register';
-import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser } from '../services/api-helper';
-import SongsIndex from './SongsIndex';
-import UsersIndex from './UsersIndex';
-import CreateUser from './CreateUser';
-import UpdateUser from './UpdateUser';
-import UserItem from './UserItem';
+import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser, postSong } from '../services/api-helper';
+// import SongsIndex from './SongsIndex';
+// import UsersIndex from './UsersIndex';
+// import CreateUser from './CreateUser';
+// import UpdateUser from './UpdateUser';
+// import UserItem from './UserItem';
+import CatPreview from './CatPreview';
+import CatsShow from './CatsShow';
+import IndividualSong from './IndividualSong';
+import AddSong from './AddSong';
+// import CatsShow from './CatsShow';
 
 export default class Main extends Component {
-  state = {
-    songs: [],
-    users: []
+  constructor(props) {
+    super(props)
+    this.state = {
+      songs: [],
+      users: []
+    }
   }
-
+  
   componentDidMount() {
     this.getAllSongs();
     this.readAllUsers();
@@ -35,6 +43,14 @@ export default class Main extends Component {
     const newUser = await postUser(userData);
     this.setState(prevState => ({
       users: [...prevState.users, newUser]
+    }))
+  }
+
+  handleSongSubmit = async (songData) => {
+    const currentUser = this.props.currentUser.id;
+    const newSong = await postSong(songData, currentUser);
+    this.setState(prevState => ({
+      songs: [...prevState.songs, newSong]
     }))
   }
 
@@ -60,52 +76,12 @@ export default class Main extends Component {
   render() {
     return (
       <main>
-        <Route path='/login' render={(props) => (
-          <Login
-            {...props}
-            handleLogin={this.props.handleLogin}
-          />
-        )} />
-        <Route path='/register' render={(props) => (
-          <Register
-            {...props}
-            handleRegister={this.props.handleRegister}
-          />
-        )} />
-        <Route path='/songs' render={() => (
-          <SongsIndex
-            songs={this.state.songs}
-          />
-        )} />
-        <Route exact path='/users' render={(props) => (
-          <UsersIndex
-            {...props}
-            handleUserDelete={this.handleUserDelete}
-            users={this.state.users}
-          />
-        )} />
-        <Route path="/new/users" render={(props) => (
-          <CreateUser
-            {...props}
-            handleUserSubmit={this.handleUserSubmit}
-          />
-        )} />
-        <Route path='/users/:id/edit' render={(props) => {
-          const { id } = props.match.params
-          return <UpdateUser
-            {...props}
-            handleUserUpdate={this.handleUserUpdate}
-            userId={id}
-          />
-        }} />
-        <Route exact path='/users/:id' render={(props) => {
-          const { id } = props.match.params
-          return <UserItem
-            userId={id}
-            songs={this.state.songs}
-          />
-        }
-        } />
+        <Route exact path='/' render={(props) => (<CatPreview {...props} currentUser={this.props.currentUser}/>)} />
+        <Route exact path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} currentUser={this.props.currentUser}/>)} />
+        <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister} />)} />
+        <Route exact path='/user' render={(props) => (<CatsShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
+        <Route path='/user/:category/:song' render={(props) => (<IndividualSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
+        <Route path='/add' render={(props) => (<AddSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} handleSongSubmit={this.handleSongSubmit}/>)} />
       </main>
     )
   }

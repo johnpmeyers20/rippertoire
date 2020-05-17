@@ -78,3 +78,12 @@ export const addSong = async (songId, id) => {
   const resp = await api.get(`/users/${songId}/songs`);
   return resp.data
 }
+
+// ====================================
+// ============= Songs by JP ==============
+// ====================================
+
+export const postSong = async (songData, user_id) => {
+  const resp = await api.post(`/users/${user_id}/songs`, { song: songData });
+  return resp.data;
+}

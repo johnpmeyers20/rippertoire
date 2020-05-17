@@ -1,8 +1,135 @@
+
 body {
-  text-align: center;
+ margin: 0;
+ height: 100%;
 }
+html {
+  width: 100%;
+  height: 100%;
+}
+/* ==================================================== */
+/* ====================== HEADER ====================== */
+/* ==================================================== */
 
 header {
-  width: 100%;
+  background-color: orange;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 'a b c';
+}
+.list-links {
+  grid-area: a;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+}
+
+#header-icon {
+  grid-area: b;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sign-in-out-up {
+  grid-area: c;
+  justify-self: center;
+  align-self: center;
+}
+/* ================================================== */
+/* ====================== MAIN ====================== */
+/* ================================================== */
+
+main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  'd e f';
+  justify-items: center;
+  justify-content: center;
+  text-align: center;  
+}
+/* ================================================== */
+/* ====================== Login ====================== */
+/* ================================================== */
+.login-form {
+  grid-area: e;
+}
+.login-form p {
+  margin: 0;
+  margin-top: 26px;
+}
+.login-title {
+  text-align: center;
+}
+.login-submit {
+  justify-content: center;
+}
+.form-field {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.form-field label {
+  margin-right: 10px;
+  align-items: flex-start;
+}
+/* ================================================== */
+/* ==================== Register ==================== */
+/* ================================================== */
+.register-form {
+  grid-area: e;
+}
+.register-form p {
+  margin: 0;
+  margin-top: 26px;
+}
+.register-title {
+  text-align: center;
+}
+.register-submit {
+  justify-content: center;
+}
+.form-field {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.form-field label {
+  margin-right: 10px;
+  align-items: flex-start;
+}
+/* ================================================== */
+/* ==================== Register ==================== */
+/* ================================================== */
+.category-preview {
+  border: 1px solid black;
+  margin: 0 1.5vw;
+  height: 78vh;
+}
+.category-preview p {
+  padding: 0 5px;
+}
+/* ================================================== */
+/* ==================== Footer ==================== */
+/* ================================================== */
+
+footer {
+  position:fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:60px;   /* Height of the footer */
+  background:#6cf;
+}
+
+.song-info {
+  overflow: auto;
+  grid-area: e;
+}
+.song-edit-button {
+  grid-area: d;
 }

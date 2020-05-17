@@ -47,8 +47,8 @@ export default class Main extends Component {
   }
 
   handleSongSubmit = async (songData) => {
-    console.log(songData);
-    const newSong = await postSong(songData);
+    const currentUser = this.props.currentUser.id;
+    const newSong = await postSong(songData, currentUser);
     this.setState(prevState => ({
       songs: [...prevState.songs, newSong]
     }))

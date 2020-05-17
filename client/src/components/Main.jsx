@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Login from './Login';
 import Register from './Register';
-import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser, postSong, destroySong } from '../services/api-helper';
+import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser, postSong, destroySong, updateSong } from '../services/api-helper';
 // import SongsIndex from './SongsIndex';
 // import UsersIndex from './UsersIndex';
 // import CreateUser from './CreateUser';
@@ -14,6 +14,7 @@ import CatsShow from './CatsShow';
 import CatShow from './CatShow';
 import IndividualSong from './IndividualSong';
 import AddSong from './AddSong';
+import EditSong from './EditSong';
 // import CatsShow from './CatsShow';
 
 export default class Main extends Component {
@@ -24,10 +25,10 @@ export default class Main extends Component {
       users: []
     }
   }
-  
+
   componentDidMount() {
     this.getAllSongs();
-    this.readAllUsers();
+    // this.readAllUsers();
   }
 
   getAllSongs = async () => {
@@ -77,22 +78,38 @@ export default class Main extends Component {
     await destroySong(id);
     this.setState(prevState => ({
       songs: prevState.songs.filter(song => {
-        return song.id !== id
+        return song.id !== parseInt(id)
       })
     }))
-    
+  }
+  handleSongUpdate = async (id, songData) => {
+    const updatedSong = await updateSong(songData, id);
+    this.setState(prevState => ({
+      songs: prevState.songs.map(song => {
+        return song.id === parseInt(id) ? updatedSong : song
+      })
+    }))
   }
 
   render() {
     return (
       <main>
-        <Route exact path='/' render={(props) => (<CatPreview {...props} currentUser={this.props.currentUser}/>)} />
-        <Route exact path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} currentUser={this.props.currentUser}/>)} />
+        <Route exact path='/' render={(props) => (<CatPreview {...props} currentUser={this.props.currentUser} />)} />
+        <Route exact path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} currentUser={this.props.currentUser} />)} />
         <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister} />)} />
         <Route exact path='/user' render={(props) => (<CatsShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
-        <Route exact path='/user/:category' render={(props) => (<CatShow {...props} currentUser={this.props.currentUser} songs={this.state.songs}/>)}/>
+        <Route exact path='/user/:category' render={(props) => (<CatShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
         <Route path='/user/:category/:song' render={(props) => (<IndividualSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} handleSongDelete={this.handleSongDelete} />)} />
-        <Route path='/add' render={(props) => (<AddSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} handleSongSubmit={this.handleSongSubmit}/>)} />
+        <Route path='/add' render={(props) => (<AddSong {...props} currentUser={this.props.currentUser} songs={this.state.songs} handleSongSubmit={this.handleSongSubmit} />)} />
+        <Route path='/edit/:song' render={(props) => { 
+          const songId = props.match.params.song
+          const song = this.state.songs.find(song => song.id === parseInt(songId))
+          return <EditSong
+            {...props}
+            song={song}
+            currentUser={this.props.currentUser}
+            handleSongUpdate={this.handleSongUpdate}/>
+        }}/>
       </main>
     )
   }

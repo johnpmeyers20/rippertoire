@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function IndividualSong(props) {
   const songs = props.songs
@@ -8,8 +9,11 @@ function IndividualSong(props) {
     <div className='song-info'>
       <h2>{currentUser && props.match.params.song}</h2>
       <div>
-        <button className='song-edit-button'>Edit Song</button>
-        <button className='song-delete-button' onClick={() => { props.handleSongDelete(songId) }}>Delete Song</button>
+        <Link to={`/edit/${songId}`}><button className='song-edit-button'>Edit Song</button></Link>
+        <button className='song-delete-button' onClick={() => {
+          props.handleSongDelete(songId)
+          props.history.push('/user')
+        }}>Delete Song</button>
       </div>
       <p>{currentUser && songs.filter(song => song.title === props.match.params.song).map(song => song.lyrics)}</p>
     </div>

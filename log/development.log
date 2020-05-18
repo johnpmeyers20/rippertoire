@@ -26222,3 +26222,20 @@ Processing by AuthenticationController#login as HTML
 Completed 200 OK in 216ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 1019)
 
 
+Started GET "/users/:user_id/songs" for ::1 at 2020-05-18 09:37:01 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SongsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/controllers/songs_controller.rb:8:in `index'
+Completed 200 OK in 57ms (Views: 42.2ms | ActiveRecord: 6.5ms | Allocations: 9225)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-18 09:37:16 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"username"=>"jptest", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"username"=>"jptest", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jptest"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 200 OK in 292ms (Views: 0.8ms | ActiveRecord: 10.6ms | Allocations: 7219)
+
+

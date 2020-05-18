@@ -1,7 +1,6 @@
-
 body {
- margin: 0;
- height: 100%;
+  margin: 0;
+  height: 100%;
 }
 html {
   width: 100%;
@@ -15,7 +14,7 @@ header {
   background-color: orange;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: 'a b c';
+  grid-template-areas: "a b c";
 }
 
 .list-links {
@@ -44,9 +43,9 @@ header {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-    'a'
-    'b'
-    'c';
+      "a"
+      "b"
+      "c";
   }
   #header-icon {
     grid-area: b;
@@ -74,19 +73,10 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 
-  'd e f';
+  grid-template-areas: "d e f";
   justify-items: center;
   justify-content: center;
-  text-align: center;  
-}
-@media only screen and (max-device-width: 590px) {
-  main {
-    display: flex;
-  }
-  .categories-element {
-    display: block;
-  }
+  text-align: center;
 }
 
 /* ================================================== */
@@ -155,12 +145,12 @@ main {
 /* ================================================== */
 
 footer {
-  position:fixed;
-  left:0;
-  bottom:0;
-  width:100%;
-  height:60px;   /* Height of the footer */
-  background:#6cf;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Height of the footer */
+  background: #6cf;
 }
 
 .song-info {
@@ -177,3 +167,28 @@ footer {
   grid-area: e;
 }
 
+@media only screen and (max-width: 590px) {
+  /* main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "d"
+      "e"
+      "f";
+  }
+  #past-cat-container {
+    grid-area: d;
+    width: 100%;
+  }
+  #present-cat-container {
+    grid-area: e;
+    width: 100%;
+  }
+  #future-cat-container {
+    grid-area: f;
+    width: 100%;
+  } */
+  main {
+    display: block;
+  }
+}

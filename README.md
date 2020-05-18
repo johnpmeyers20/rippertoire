@@ -238,3 +238,13 @@ database_db
 ## Code Issues & Resolutions
 
 > Use this section to list of all major issues encountered and their resolution, if you'd like.
+
+## Journal
+- May 17th 
+  - Had two big issues today. Deploying was a nightmare. I finally got it all deployed to Heroku. Deployed to Surge which was giving me nightmarish CORS issues. Finally deployed to netlify. CORS issues disappeared. To deploy on Netlify make sure to set the following:
+    
+    Base directory: client
+    Build command: npm run build
+    Publish Directory: client/build
+
+  - I had no seed file and the error Shay and I were getting was due to the fact that there was no category, thus there could be no category id's!

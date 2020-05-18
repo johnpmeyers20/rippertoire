@@ -8,7 +8,7 @@ function CatsShow(props) {
   const currentUser = props.currentUser
   return (
     <>
-      <div>
+      <div className='categories-element'>
         <Link to='/user/1'><h2>Past</h2></Link>
         {currentUser && songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 1).map(song => (
           <React.Fragment key={song.id}>
@@ -16,7 +16,7 @@ function CatsShow(props) {
           </React.Fragment>
         ))}
       </div>
-      <div>
+      <div className='categories-element'>
         <Link to='/user/2'><h2>Present</h2></Link>
         {currentUser && songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 2).map(song => (
           <React.Fragment key={song.id}>
@@ -24,7 +24,7 @@ function CatsShow(props) {
           </React.Fragment>
         ))}
       </div>
-      <div>
+      <div className='categories-element'>
         <Link to='/user/3'><h2>Future</h2></Link>
         {currentUser && songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 3).map(song => (
           <React.Fragment key={song.id}>

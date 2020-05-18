@@ -22,7 +22,7 @@ export default class AddSong extends Component {
     const currentUser = this.props.currentUser
     const { artist, title, lyrics, category_id } = this.state;
     return (
-      <form onSubmit={(e) => {
+      <form className='add-song-form' onSubmit={(e) => {
         e.preventDefault();
         this.props.handleSongSubmit(this.state, currentUser.id);
         this.props.history.push(`/user/${category_id}/${title}`);

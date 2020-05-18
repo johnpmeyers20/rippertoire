@@ -248,3 +248,6 @@ database_db
     Publish Directory: client/build
 
   - I had no seed file and the error Shay and I were getting was due to the fact that there was no category, thus there could be no category id's!
+
+  ## Questions
+  - How can I upload changes to my site without losing the data that's been uploaded manually?

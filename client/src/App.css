@@ -17,6 +17,7 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: 'a b c';
 }
+
 .list-links {
   grid-area: a;
   display: flex;
@@ -36,6 +37,33 @@ header {
   justify-self: center;
   align-self: center;
 }
+
+@media only screen and (max-device-width: 590px) {
+  header {
+    height: 10vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    'a'
+    'b'
+    'c';
+  }
+  #header-icon {
+    grid-area: b;
+  }
+  header h1 {
+    margin: 5px auto;
+    font-size: 3vh;
+  }
+  .sign-in-out-up {
+    grid-area: a;
+    justify-self: center;
+  }
+  .list-links {
+    grid-area: c;
+    justify-content: space-around;
+  }
+}
 /* ================================================== */
 /* ====================== MAIN ====================== */
 /* ================================================== */
@@ -52,6 +80,15 @@ main {
   justify-content: center;
   text-align: center;  
 }
+@media only screen and (max-device-width: 590px) {
+  main {
+    display: flex;
+  }
+  .categories-element {
+    display: block;
+  }
+}
+
 /* ================================================== */
 /* ====================== Login ====================== */
 /* ================================================== */
@@ -133,3 +170,10 @@ footer {
 .categorized-list {
   grid-area: e;
 }
+.add-song-form {
+  grid-area: e;
+}
+.edit-song-form {
+  grid-area: e;
+}
+

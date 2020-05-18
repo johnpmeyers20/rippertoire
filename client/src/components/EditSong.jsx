@@ -13,10 +13,10 @@ export default class EditSong extends Component {
   }
 
   componentDidMount() {
-    if (this.props.song) { 
+    if (this.props.song) {
       this.setForm()
     }
-  } 
+  }
 
   componentDidUpdate(prevProps) {
     if (prevProps.song !== this.props.song) {
@@ -26,7 +26,7 @@ export default class EditSong extends Component {
 
   setForm = () => {
     const { artist, title, user_id, lyrics, category_id } = this.props.song
-    this.setState({artist, title, user_id, lyrics, category_id})
+    this.setState({ artist, title, user_id, lyrics, category_id })
   }
 
   handleChange = (e) => {
@@ -40,7 +40,7 @@ export default class EditSong extends Component {
     const currentUser = this.props.currentUser
     const { artist, title, lyrics, category_id } = this.state;
     return (
-      <form onSubmit={(e) => {
+      <form className='edit-song-form' onSubmit={(e) => {
         e.preventDefault();
         this.props.handleSongUpdate(this.props.song.id, this.state);
         this.props.history.push(`/user/${category_id}/${title}`);

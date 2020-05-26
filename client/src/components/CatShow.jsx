@@ -19,11 +19,8 @@ const catTitle = (categoryId) => {
 }
 
 export default function CatShow(props) {
-  // console.log(props);
   const songs = props.songs
   const currentUser = props.currentUser
-  console.log(props.match.params.category)
-  // if (currentUser && props.match.params.category === 1) {
     return (
       <>
         <div className='categorized-list'>

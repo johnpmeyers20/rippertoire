@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 // import { addSong } from '../services/api-helper';
 
 function CatsShow(props) {
-  // console.log(props);
   const songs = props.songs
   const currentUser = props.currentUser
   return (

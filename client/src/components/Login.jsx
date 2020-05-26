@@ -23,10 +23,7 @@ export default class Login extends Component {
       <div className='login-form'>
         <form onSubmit={(e) => {
           e.preventDefault();
-          this.props.handleLogin(this.state);
-          // console.log(this.props.currentUser);
-          // console.log(this.props.currentUser.id);
-          
+          this.props.handleLogin(this.state);          
           this.props.history.push(`/user`);
         }}>
           <h3 className='login-title'>Login</h3>

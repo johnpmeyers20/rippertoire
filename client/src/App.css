@@ -168,26 +168,6 @@ footer {
 }
 
 @media only screen and (max-width: 590px) {
-  /* main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-      "d"
-      "e"
-      "f";
-  }
-  #past-cat-container {
-    grid-area: d;
-    width: 100%;
-  }
-  #present-cat-container {
-    grid-area: e;
-    width: 100%;
-  }
-  #future-cat-container {
-    grid-area: f;
-    width: 100%;
-  } */
   main {
     display: block;
   }

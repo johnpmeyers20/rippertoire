@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import {
+  getAllSongs,
+  getAllUsers,
+  postUser,
+  updateUser,
+  destroyUser,
+  postSong,
+  destroySong,
+  updateSong
+} from '../services/api-helper';
 
 import Login from './Login';
 import Register from './Register';
-import { getAllSongs, getAllUsers, postUser, updateUser, destroyUser, postSong, destroySong, updateSong } from '../services/api-helper';
-// import SongsIndex from './SongsIndex';
-// import UsersIndex from './UsersIndex';
-// import CreateUser from './CreateUser';
-// import UpdateUser from './UpdateUser';
-// import UserItem from './UserItem';
 import CatPreview from './CatPreview';
 import CatsShow from './CatsShow';
 import CatShow from './CatShow';

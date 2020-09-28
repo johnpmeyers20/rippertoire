@@ -37,7 +37,7 @@ export default class EditSong extends Component {
     this.setState({ user_id: this.props.currentUser.id });
   }
   render() {
-    const currentUser = this.props.currentUser
+    // const currentUser = this.props.currentUser
     const { artist, title, lyrics, category_id } = this.state;
     return (
       <form className='edit-song-form' onSubmit={(e) => {

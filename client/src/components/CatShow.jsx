@@ -5,15 +5,19 @@ import { Link } from 'react-router-dom';
 const catTitle = (categoryId) => { 
   let title;
   switch (categoryId) {
-    case "1": 
-      title = "Past"
-      break
+    case "1":
+      title = "Past";
+      break;
     case "2":
-      title = "Present"
-      break
+      title = "Present";
+      break;
     case "3":
-      title = "Future"
-      break
+      title = "Future";
+      break;
+    default:
+      console.log('Something\'s wrong with catTitle switch statement in CatShow component');
+      title = "Past";
+      break;
   }
   return title;
 }

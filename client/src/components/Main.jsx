@@ -19,7 +19,6 @@ import CatShow from './CatShow';
 import IndividualSong from './IndividualSong';
 import AddSong from './AddSong';
 import EditSong from './EditSong';
-// import CatsShow from './CatsShow';
 
 export default class Main extends Component {
   constructor(props) {

@@ -25,13 +25,20 @@ export default class Main extends Component {
     super(props)
     this.state = {
       songs: [],
-      users: []
+      users: [],
+      isLoading: true
     }
   }
 
   componentDidMount() {
     this.getAllSongs();
     // this.readAllUsers();
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        isLoading: !prevState.isLoading
+      }
+    })
   }
 
   getAllSongs = async () => {
@@ -95,9 +102,12 @@ export default class Main extends Component {
   }
 
   render() {
+    const loadingScreen = this.state.isLoading ?
+      <div><h1>Please wait a moment while your Rippertoire loads...</h1></div> :
+      <CatPreview {...this.props} currentUser={this.props.currentUser} />
     return (
       <main>
-        <Route exact path='/' render={(props) => (<CatPreview {...props} currentUser={this.props.currentUser} />)} />
+        <Route exact path='/' render={(props) => ({loadingScreen})} />
         <Route exact path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} currentUser={this.props.currentUser} />)} />
         <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister} />)} />
         <Route exact path='/user' render={(props) => (<CatsShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />

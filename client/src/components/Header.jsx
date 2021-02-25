@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header(props) {
   return (
+
     <header>
       {
         props.currentUser
@@ -21,13 +22,12 @@ export default function Header(props) {
           <Link className='sign-in-out-up' to="/login">Login/Register</Link>
       }
       {
-        props.currentUser
-        &&
-        <div className='list-links'>
-          <Link to='/user/1'>Past</Link>
-          <Link to='/user/2'>Present</Link>
-          <Link to='/user/3'>Future</Link>
-        </div>
+        props.currentUser && 
+          <div className='list-links'>
+            <Link to='/user/1'>Past</Link>
+            <Link to='/user/2'>Present</Link>
+            <Link to='/user/3'>Future</Link>
+          </div>
       }
     </header>
   )

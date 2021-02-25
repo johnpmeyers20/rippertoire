@@ -38,32 +38,3 @@ export default function CatShow(props) {
       </>
     )
   }
-//   else if (currentUser && props.match.params.category === 2) {
-//     return (
-//       <>
-//         <div className='categorized-list'>
-//           <h2>Present</h2>
-//           {songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 2).map(song => (
-//             <React.Fragment key={song.id}>
-//               <Link to={`/user/${song.category_id}/${song.title}`}><h3>{song.title}</h3></Link>
-//             </React.Fragment>
-//           ))}
-//         </div>
-//       </>
-//     )
-//   }
-//   else if (currentUser && props.match.params.category === 3) {
-//     return (
-//       <>
-//         <div className='categorized-list'>
-//           <h2>Future</h2>
-//           {songs.filter(song => song.user_id === currentUser.id).filter(song => song.category_id === 3).map(song => (
-//             <React.Fragment key={song.id}>
-//               <Link to={`/user/${song.category_id}/${song.title}`}><h3>{song.title}</h3></Link>
-//             </React.Fragment>
-//           ))}
-//         </div>
-//       </>
-//     )
-//   }
-// }

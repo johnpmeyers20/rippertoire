@@ -13,7 +13,6 @@ import {
 
 import Login from './Login';
 import Register from './Register';
-import CatPreview from './CatPreview';
 import CatsShow from './CatsShow';
 import CatShow from './CatShow';
 import IndividualSong from './IndividualSong';
@@ -97,8 +96,7 @@ export default class Main extends Component {
   render() {
     return (
       <main>
-        <Route exact path='/' render={(props) => (<CatPreview {...props} currentUser={this.props.currentUser} />)} />
-        <Route exact path='/login' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} currentUser={this.props.currentUser} />)} />
+        <Route exact path='/' render={(props) => (<Login {...props} handleLogin={this.props.handleLogin} currentUser={this.props.currentUser} />)} />
         <Route path='/register' render={(props) => (<Register {...props} handleRegister={this.props.handleRegister} />)} />
         <Route exact path='/user' render={(props) => (<CatsShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
         <Route exact path='/user/:category' render={(props) => (<CatShow {...props} currentUser={this.props.currentUser} songs={this.state.songs} />)} />
